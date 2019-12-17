@@ -1,0 +1,24 @@
+extends layout
+
+block content
+  h2.mt-3= post.title 
+  h4= post.subtitle 
+  h5.text-muted por #{post.author} el #{post.date.toLocaleDateString('es-AR')}
+  p= post.content
+  hr
+  h3 Deja un comentario
+  form(action='/newcomment' method='post')
+    input(type='hidden' name='postId' value=post._id)
+    div.form-group
+      label Autor
+      input.form-control(name='author')
+    div.form-group
+      label Contenido
+      textarea.form-control(rows='2' name='content')            
+    input(type='submit' value='Enviar')
+  hr
+  each comment in post.comments
+    p.text-muted= comment.date.toLocaleDateString()
+    h5 #{comment.author} dice:
+    p= comment.content
+    hr          

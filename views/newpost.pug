@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1 Nuevo post
+  form(action='/newpost' method='post')
+    div.form-group
+      label Titulo
+      input.form-control(name='title')
+    div.form-group
+      label Subtitulo
+      input.form-control(name='subtitle')
+    div.form-group
+      label Autor
+      input.form-control(name='author')
+    div.form-group
+      label Contenido
+      textarea.form-control(rows='6' name='content')            
+    input(type='submit' value='Crear post')   

@@ -1,0 +1,10 @@
+extends layout 
+
+block content 
+  each post in posts
+    div.mt-3
+      h6.text-muted= post.date.toLocaleDateString('es-AR')
+      h3= post.title
+      h5.text-muted por #{post.author}
+      a(href=`/posts/${post._id}`) Leer mas...
+      hr
